@@ -1,9 +1,38 @@
 /* SPDX-License-Identifier: GPL-3.0-or-later */
 /* Copyright © 2026 Inkdex */
 
+import {
+  ContentRating,
+  SourceIntents,
+  type ExtensionInfo,
+  type SourceDeveloper,
+} from "@paperback/types";
+
 const BASE_VERSION = "1.0.0-alpha.1";
 
-export function getVersion(
+export const basePbConfig = {
+  name: "",
+  description: "",
+  version: BASE_VERSION,
+  icon: "icon.png",
+  language: "en",
+  contentRating: ContentRating.EVERYONE as ContentRating,
+  capabilities: [
+    SourceIntents.DISCOVER_SECTION_PROVIDING,
+    SourceIntents.SEARCH_RESULT_PROVIDING,
+    SourceIntents.CHAPTER_PROVIDING,
+  ],
+  badges: [],
+  developers: [
+    {
+      name: "Inkdex",
+      website: "https://inkdex.github.io",
+      github: "https://github.com/inkdex",
+    },
+  ] as SourceDeveloper[],
+} satisfies ExtensionInfo;
+
+export function customVersion(
   options?:
     | {
         increaseMajor?: number;
@@ -39,6 +68,7 @@ export function getVersion(
     if (!baseParts[1]) {
       throw new Error(`Invalid BASE_VERSION: '${BASE_VERSION}'. Missing prerelease identifier.`);
     }
+
     const prereleaseParts = baseParts[1].split(".");
     if (prereleaseParts.length < 2 || isNaN(Number(prereleaseParts[1]))) {
       throw new Error(

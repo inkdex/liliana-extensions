@@ -1,25 +1,14 @@
 /* SPDX-License-Identifier: GPL-3.0-or-later */
 /* Copyright © 2026 Inkdex */
 
-import { ContentRating, SourceIntents, type ExtensionInfo } from "@paperback/types";
-import { getVersion } from "../generic/utils";
+import { ContentRating } from "@paperback/types";
+import { basePbConfig } from "../generic/config";
 
-export default {
-  name: "ManhuaPlus",
-  description: "Extension that pulls content from manhuaplus.org.",
-  version: getVersion(),
-  icon: "icon.png",
-  language: "en",
-  contentRating: ContentRating.MATURE,
-  capabilities:
-    SourceIntents.DISCOVER_SECIONS_PROVIDING |
-    SourceIntents.SEARCH_RESULTS_PROVIDING |
-    SourceIntents.CHAPTER_PROVIDING,
-  badges: [],
-  developers: [
-    {
-      name: "deskpacito",
-      github: "https://github.com/deskpacito",
-    },
-  ],
-} satisfies ExtensionInfo;
+let pbConfig = basePbConfig;
+
+pbConfig.name = "ManhuaPlus";
+pbConfig.description = "Extension that pulls content from manhuaplus.org.";
+pbConfig.contentRating = ContentRating.MATURE;
+pbConfig.developers = [{ name: "deskpacito", github: "https://github.com/deskpacito" }];
+
+export default pbConfig;
