@@ -9,8 +9,8 @@ import {
   type SourceManga,
   type Tag,
 } from "@paperback/types";
-import * as cheerio from "cheerio";
 import { ContentRating } from "@paperback/types";
+import * as cheerio from "cheerio";
 
 export class LilianaParser {
   parseMangaDetails(
