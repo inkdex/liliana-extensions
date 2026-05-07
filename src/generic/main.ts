@@ -15,7 +15,6 @@ import {
   type Extension,
   type MangaProviding,
   type PagedResults,
-  type SearchFilter,
   type SearchQuery,
   type SearchResultItem,
   type SearchResultsProviding,
@@ -126,12 +125,10 @@ export abstract class Liliana implements LilianaImplementation {
     };
   }
 
-  async getSearchFilters(): Promise<SearchFilter[]> {
-    return [];
-  }
+  // TODO: Implement getAdvancedSearchForm for search filters
 
   async getSearchResults(
-    query: SearchQuery,
+    query: SearchQuery<never>,
     metadata?: number,
   ): Promise<PagedResults<SearchResultItem>> {
     const page = metadata ?? 1;
