@@ -4,15 +4,14 @@ on:
   push:
     branches:
       - "[0-9]+.[0-9]+/*"
-      - "[0-9]+.[0-9]+/*"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: ${{ github.workflow }}
-  cancel-in-progress: false
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
 
 jobs:
   bundle-deploy:
