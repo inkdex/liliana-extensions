@@ -8,17 +8,16 @@ updates:
       interval: weekly
       day: monday
     groups:
-      security:
-        applies-to: security-updates
+      paperback:
         patterns:
-          - "*"
-      minor_patch:
+          - "@paperback/*"
+      minor-patch:
         update-types:
           - minor
           - patch
       major:
         update-types:
           - major
-      pre_release:
+      pre-release:
         patterns:
-          - "*"
+          - "*-*"
