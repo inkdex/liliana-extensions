@@ -1,8 +1,8 @@
 {
-  "buildTime": "2026-06-15T17:49:29.144Z",
+  "buildTime": "2026-06-16T12:19:27.010Z",
   "builtWith": {
-    "toolchain": "1.0.0-alpha.87",
-    "types": "1.0.0-alpha.87"
+    "toolchain": "1.0.0-alpha.92",
+    "types": "1.0.0-alpha.92"
   },
   "repository": {
     "name": "Liliana Extensions (0.9)",
